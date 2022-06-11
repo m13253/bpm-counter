@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: iso-8859-1 -*-
 # ncurses doesn't understand utf8 (yet)
 
@@ -94,11 +94,11 @@ if  os_name.find("CYGWIN") > -1:
 import sys
 
 if len( sys.argv) > 1:
-    print """Display the frequency of keystrokes in 1/min (bpm).
+    print("""Display the frequency of keystrokes in 1/min (bpm).
 
     usage: This should be self evident ;-).
 Version 1.3
-""", sys.argv[ 0]
+""", sys.argv[ 0])
     exit( 1)
 
 # --- helper functions ---
@@ -206,18 +206,18 @@ class FrequencyCounter( StopWatch):
 
     def PrintStatus( self):
         """bla"""
-        print "bpm-counter output of last sample:"
+        print("bpm-counter output of last sample:")
         b = len( self.frequencies)
         k = len( self.times)
-        print "  Keystrokes:", k
-        print "  Beats counted:", b
+        print("  Keystrokes:", k)
+        print("  Beats counted:", b)
         if b > 1:
             bpm =  round( mean( self.frequencies), 1)
             std = round( standardDeviation( self.frequencies), 2)
-            print "  Mean:", str( round( bpm)), "bpm"
-            print "  Standard deviation", str( std), "bpm"
+            print("  Mean:", str( round( bpm)), "bpm")
+            print("  Standard deviation", str( std), "bpm")
             bpm =  round( movingAverage( self.frequencies, 10), 1)
-            print "  Moving Average:", str( bpm), "bpm"
+            print("  Moving Average:", str( bpm), "bpm")
         
 # --- interface stuff ---
 
